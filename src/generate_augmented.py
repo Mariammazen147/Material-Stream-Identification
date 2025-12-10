@@ -4,8 +4,8 @@ import albumentations as A
 import random
 from multiprocessing import Pool
 
-RAW_ROOT = r"D:\MaterialClassification\data\raw"
-AUG_ROOT = r"D:\MaterialClassification\data\augmented"
+RAW_ROOT = r"D:\MaterialClassification\dataset\raw"
+AUG_ROOT = r"D:\MaterialClassification\dataset\augmented"
 TARGET = 500
 CLASSES = ['glass', 'paper', 'cardboard', 'plastic', 'metal', 'trash']
 

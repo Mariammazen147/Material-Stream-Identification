@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import random
 
-DATASET_PATH = "D:/MaterialClassification/data/augmented"
+DATASET_PATH = "D:/MaterialClassification/dataset/raw"
 CLASSES = ['glass', 'paper', 'cardboard', 'plastic', 'metal', 'trash']
 CLASS_TO_ID = {c: i for i, c in enumerate(CLASSES)}
 
