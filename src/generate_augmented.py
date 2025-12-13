@@ -3,9 +3,11 @@ import cv2
 import albumentations as A
 import random
 from multiprocessing import Pool
+from config import RAW_DIR, AUGMENTED_DIR
 
-RAW_ROOT = r"D:\MaterialClassification\dataset\raw"
-AUG_ROOT = r"D:\MaterialClassification\dataset\augmented"
+RAW_ROOT = RAW_DIR
+AUG_ROOT = AUGMENTED_DIR
+
 TARGET = 500
 CLASSES = ['glass', 'paper', 'cardboard', 'plastic', 'metal', 'trash']
 
@@ -69,4 +71,4 @@ if __name__ == "__main__":
             with Pool(6) as p:
                 p.map(augment, tasks)
 
-        print(f"{cls}: {current} → {TARGET} (generated {needed})")
+        print(f"{cls}: {current} ---> {TARGET} (generated {needed})")
