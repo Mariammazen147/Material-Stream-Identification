@@ -16,7 +16,7 @@ transform = A.Compose([
     A.HorizontalFlip(p=0.5),
     A.RandomBrightnessContrast(brightness_limit=0.3, contrast_limit=0.3, p=0.7),
     A.GaussNoise(p=0.5),
-    A.RandomResizedCrop(size=(24,24), scale=(0.8, 1.0), p=0.7),
+    A.RandomResizedCrop(size=(256,256), scale=(0.8, 1.0), ratio=(0.9, 1.1), p=0.7),
     A.CoarseDropout(p=0.4),
     A.HueSaturationValue(hue_shift_limit=20, sat_shift_limit=30, val_shift_limit=20, p=0.5),
 ])
