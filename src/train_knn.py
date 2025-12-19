@@ -20,7 +20,7 @@ X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_st
 
 # Try feature selection
 print("\nTrying feature selection...")
-selector = SelectKBest(f_classif, k=min(500, X.shape[1]))
+selector = SelectKBest(f_classif, k=300)
 X_train_selected = selector.fit_transform(X_train, y_train)
 X_val_selected = selector.transform(X_val)
 
