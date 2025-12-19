@@ -2,7 +2,6 @@ import os
 import shutil
 from config import AUGMENTED_DIR, PROJECT_ROOT, FEATURES_FILE, LABELS_FILE
 
-# Paths for plots
 PCA_PLOT = os.path.join(PROJECT_ROOT, "pca_plot.png")
 TSNE_PLOT = os.path.join(PROJECT_ROOT, "tsne_plot.png")
 
@@ -39,14 +38,11 @@ def delete_file(path):
 if __name__ == "__main__":
     print("=== RESTORING PROJECT ===")
 
-    # 1. Clear augmented dataset
     delete_folder_contents(AUGMENTED_DIR)
 
-    # 2. Delete visualization results
     delete_file(PCA_PLOT)
     delete_file(TSNE_PLOT)
 
-    # 3. Delete feature matrix files
     delete_file(FEATURES_FILE)
     delete_file(LABELS_FILE)
 

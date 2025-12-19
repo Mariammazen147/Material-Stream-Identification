@@ -1,26 +1,14 @@
 import os
 
-# ---------------------------------------------------------
-# PROJECT ROOT
-# ---------------------------------------------------------
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# ---------------------------------------------------------
-# DATASET PATHS
-# ---------------------------------------------------------
 DATASET_DIR = os.path.join(PROJECT_ROOT, "dataset")
 RAW_DIR = os.path.join(DATASET_DIR, "raw")
 AUGMENTED_DIR = os.path.join(DATASET_DIR, "augmented")
 
-# ---------------------------------------------------------
-# FEATURE STORAGE (USED BY MEMBER B, C, D)
-# ---------------------------------------------------------
 FEATURES_FILE = os.path.join(DATASET_DIR, "features.npy")
 LABELS_FILE = os.path.join(DATASET_DIR, "labels.npy")
 
-# ---------------------------------------------------------
-# Debug print (optional)
-# ---------------------------------------------------------
 print("PROJECT ROOT:", PROJECT_ROOT)
 print("RAW DIR:", RAW_DIR)
 print("AUGMENTED DIR:", AUGMENTED_DIR)

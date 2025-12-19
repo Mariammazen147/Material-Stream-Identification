@@ -70,13 +70,11 @@ while True:
         blur = blur_score(crop)
         texture = texture_energy(crop)
 
-# thresholds (tuned for webcam)
         if blur < 60 or texture < 8:
             pred = 6
             confidence = 0
             label = class_names[pred]
             color = colors[pred]
-            # skip ML completely
         else:
             features = extract_features(crop).reshape(1, -1)
 

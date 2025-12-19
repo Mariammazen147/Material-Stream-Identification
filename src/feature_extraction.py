@@ -1,4 +1,3 @@
-# src/feature_extraction.py - ULTRA-SAFE LOW-MEMORY VERSION
 import os
 import cv2
 import numpy as np
@@ -12,27 +11,27 @@ def extract_lbp(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     gray = cv2.resize(gray, (128, 128))
     lbp = local_binary_pattern(gray, P=8, R=1, method="uniform")
-    hist, _ = np.histogram(lbp.ravel(), bins=10, range=(0, 10))  # uniform LBP has 9+1 = 10 bins
+    hist, _ = np.histogram(lbp.ravel(), bins=10, range=(0, 10)) 
     hist = hist.astype("float") / (hist.sum() + 1e-6)
-    return hist  # 10 dims
+    return hist  
 
 def extract_hog(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     gray = cv2.resize(gray, (128, 128))
     hog_feat = hog(gray, orientations=8, pixels_per_cell=(16, 16), cells_per_block=(1, 1))
-    return hog_feat  # ~512 dims
+    return hog_feat 
 
 def extract_color_hist(img):
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     hist = cv2.calcHist([hsv], [0, 1, 2], None, [8, 8, 8], [0, 180, 0, 256, 0, 256])
     hist = cv2.normalize(hist, hist).flatten()
-    return hist  # 512 dims
+    return hist 
 
 def extract_edge_density(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     gray = cv2.resize(gray, (128, 128))
     edges = cv2.Canny(gray, 100, 200)
-    return np.array([edges.mean() / 255.0])  # 1 dim
+    return np.array([edges.mean() / 255.0])  
 
 def extract_shape(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -56,7 +55,7 @@ def extract_features(img):
     f3 = extract_color_hist(img)
     f4 = extract_edge_density(img)
     f5 = extract_shape(img)
-    return np.concatenate([f1, f2, f3, f4, f5])  # ~1039 dimensions total
+    return np.concatenate([f1, f2, f3, f4, f5])  
 
 if __name__ == "__main__":
     features = []

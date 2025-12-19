@@ -57,12 +57,10 @@ if __name__ == "__main__":
         current = len(valid_originals)
         needed = max(0, TARGET - current)
 
-        # Save originals
         for i, p in enumerate(valid_originals):
             img = cv2.imread(p)
             cv2.imwrite(os.path.join(aug_path, f"img_{i:06d}.jpg"), img)
 
-        # Generate augmented images
         if needed > 0:
             tasks = [
                 (random.choice(valid_originals), aug_path, i + current)
